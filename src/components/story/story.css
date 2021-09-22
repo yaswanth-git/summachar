@@ -83,6 +83,7 @@
 .story-title {
   height: 50px;
   display: flex;
+  justify-content: center;
   align-items: center;
   font-size: 40px;
 }
@@ -107,6 +108,7 @@
   .story-container {
     width: 100%;
     height: 400px;
+    margin: 15px 0 15px 0;
   }
   .slide {
     display: grid;
@@ -148,7 +150,7 @@
     width: 296px;
     height: 280px;
     position: absolute;
-    left: -250px;
+    left: -270px;
   }
   .progress-bar {
     width: 100%;
@@ -163,5 +165,12 @@
   }
   .reached-bar {
     background-color: blue;
+  }
+}
+@media (min-width: 425px) {
+  .story-heading,
+  .slide,
+  .progress-bar {
+    display: none;
   }
 }

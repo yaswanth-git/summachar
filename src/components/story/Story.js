@@ -6,23 +6,19 @@ export default function Story(props) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-
   function handleTouchStart(e) {
     setTouchStart(e.targetTouches[0].clientX);
   }
-
   function handleTouchMove(e) {
     setTouchEnd(e.targetTouches[0].clientX);
   }
-
   function handleTouchEnd() {
-    if (touchStart - touchEnd > 150) {
+    if (touchStart - touchEnd > 75) {
       if (currentSlide !== slides.length - 1) {
         setCurrentSlide(currentSlide + 1);
       }
     }
-
-    if (touchStart - touchEnd < -150) {
+    if (touchStart - touchEnd < -75) {
       if (currentSlide !== 0) {
         setCurrentSlide(currentSlide - 1);
       }
@@ -42,10 +38,11 @@ export default function Story(props) {
         <div className="story-heading">Story</div>
         <div className="slide">
           {slides.map((e, i) => {
-            if (i === 0)
+            if (i === 0) {
               return (
                 <>
                   <div
+                    key={e}
                     className={`${i < currentSlide ? "image-wrapper" : ""}`}
                   ></div>
                   <div
@@ -66,24 +63,26 @@ export default function Story(props) {
                   </div>
                 </>
               );
-            return (
-              <div
-                key={i}
-                className={`image-wrapper ${
-                  i === currentSlide - 1 ? "prev-slide" : ""
-                } ${i === currentSlide + 1 ? "next-slide" : ""}
+            } else {
+              return (
+                <div
+                  key={i}
+                  className={`image-wrapper ${
+                    i === currentSlide - 1 ? "prev-slide" : ""
+                  } ${i === currentSlide + 1 ? "next-slide" : ""}
               ${i === currentSlide ? "curr-slide" : ""}`}
-              >
-                <img
-                  alt="not available"
-                  src={e}
-                  onTouchStart={handleTouchStart}
-                  onTouchMove={handleTouchMove}
-                  onTouchEnd={handleTouchEnd}
-                  className="sliding-image"
-                />
-              </div>
-            );
+                >
+                  <img
+                    alt="not available"
+                    src={e}
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
+                    className="sliding-image"
+                  />
+                </div>
+              );
+            }
           })}
         </div>
         <div className="progress-bar">
@@ -148,7 +147,9 @@ export default function Story(props) {
             </div>
             <div
               className={`model-increaser`}
-              onClick={() => setModelNumber(modelNumber + 1)}
+              onClick={() => {
+                setModelNumber(modelNumber + 1);
+              }}
             >
               {isLast ? "" : ">>"}
             </div>

@@ -24,6 +24,7 @@
 .dropdown select,
 option {
   font-weight: bold;
+  color: gray;
 }
 @media (max-width: 425px) {
   .filter-bar {

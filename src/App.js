@@ -2,11 +2,6 @@ import { useState } from "react";
 import Title from "./components/title/Title";
 import Filter from "./components/filter/Filter";
 import Story from "./components/story/Story";
-import photo1 from "./photos/1.jpg";
-import photo2 from "./photos/2.jpg";
-import photo3 from "./photos/3.jpg";
-import photo4 from "./photos/4.jpg";
-import photo5 from "./photos/5.jpg";
 import "./App.css";
 
 function App() {
@@ -26,11 +21,41 @@ function App() {
     "Trivia",
   ];
   const stories = [
-    [photo1, photo2, photo3, photo4, photo5],
-    [photo1, photo2, photo3, photo4, photo5],
-    [photo1, photo2, photo3, photo4, photo5],
-    [photo1, photo2, photo3, photo4, photo5],
-    [photo1, photo2, photo3, photo4, photo5],
+    [
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/1.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/2.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/3.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/4.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/5.jpg",
+    ],
+    [
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/1.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/2.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/3.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/4.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/5.jpg",
+    ],
+    [
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/1.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/2.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/3.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/4.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/5.jpg",
+    ],
+    [
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/1.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/2.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/3.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/4.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/5.jpg",
+    ],
+    [
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/1.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/2.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/3.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/4.jpg",
+      "https://raw.githubusercontent.com/yaswanth-git/summachar/main/src/photos/5.jpg",
+    ],
   ];
   return (
     <div className="App">
@@ -46,10 +71,11 @@ function App() {
             <Story
               key={index}
               slides={e}
+              index={index}
               modelNumber={modelNumber}
               setModelNumber={setModelNumber}
-              isFirst={modelNumber === 0}
-              isLast={modelNumber === stories.length - 1}
+              isFirst={index === 0}
+              isLast={index === stories.length - 1}
             />
           </>
         ))}
