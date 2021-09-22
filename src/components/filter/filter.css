@@ -1,0 +1,40 @@
+.filter-bar {
+  height: 30px;
+  display: flex;
+  border-bottom: 1px solid gray;
+  min-width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+}
+.filter-bar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.filter {
+  padding: 0 10px 0 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: gray;
+}
+.active-filter {
+  color: blueviolet;
+}
+.dropdown select,
+option {
+  font-weight: bold;
+}
+@media (max-width: 425px) {
+  .filter-bar {
+    border: none;
+  }
+  .active-filter {
+    border-bottom: 3px solid blueviolet;
+  }
+  .dropdown select,
+  option {
+    background-color: lightgray;
+    color: gray;
+  }
+}
